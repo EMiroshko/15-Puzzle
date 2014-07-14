@@ -6,12 +6,6 @@ $("#button").click(function(){
 	createPuzzle(4);
 });
 
-for (var i = 0; i < puzzleArr.length-1; i++) {
-	puzzleArr[i].value=counter;
-	counter++;
-
-};
-
 function createPuzzle(puzzles){
 	var table=$('<table>');
 	$("body").append(table);
@@ -31,6 +25,8 @@ function createPuzzle(puzzles){
 	for (var i = 0; i < 15; i++) {
 		$(puzzleArr[i]).html(i+1);
 	};
+	$("td:last").addClass("none");
+	$(".none").hide(); 
 	
 }
 
