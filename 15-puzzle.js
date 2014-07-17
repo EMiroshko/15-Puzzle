@@ -22,11 +22,17 @@ function createPuzzle(puzzles){
 
 		}
 	}
+	var freePlace=$("td:last");
 	for (var i = 0; i < 15; i++) {
 		$(puzzleArr[i]).html(i+1);
 	};
-	$("td:last").addClass("none");
-	$(".none").hide(); 
+	
+	$("td").click(function(){
+		alert(puzzleArr.indexOf($(this).html()))
+  		$(freePlace).html($(this).html());
+  		$(this).html("");
+  		freePlace=this; 	
+  			
+  	})
 	
 }
-
