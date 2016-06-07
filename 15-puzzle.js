@@ -3,6 +3,7 @@ var puzzleArr=[];
 var counter=1;
 $("#button").on('click', function(){
 	createPuzzle(4);
+	$("#button").attr("disabled");
 });
 
 function createPuzzle(puzzles){
@@ -22,13 +23,16 @@ function createPuzzle(puzzles){
 		$(puzzleArr[i]).html(i+1);
 	};	
 	$("td").on('click', function(){
-		if ($(this).html()!==""){
-			var tdIndex = $(this).attr("data-index");
-			var trIndex = $(this).parent().attr("data-index");
-			alert(tdIndex+trIndex);
+		var tdIndex = $(this).attr("data-index");
+		var trIndex = $(this).parent().attr("data-index");
+		var tdFreePlace = $(freePlace).attr("data-index");
+		var trFreePlace = $(freePlace).parent().attr("data-index");
+		if ($(this).html()!=="" && 
+		Math.abs(tdIndex - tdFreePlace) <= 1 && 
+		Math.abs(trIndex - trFreePlace) <= 1){			
 			$(freePlace).html($(this).html());
 			$(this).html("");
-			freePlace=this; 
+			freePlace=this;			 
 		}			  			
   	})	
 }
