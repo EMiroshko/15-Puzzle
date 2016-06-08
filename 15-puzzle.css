@@ -12,6 +12,17 @@
 	vertical-align: middle;
 	box-shadow: 5px 5px 2px #888888;
 }
+
+.puzzleTd:hover{
+	background-color: #acb;
+}
+
+.puzzleTd:active{
+	position: relative;
+	top: 2px;
+	left: 2px;
+}
+
 .puzzleTable {
 	margin-top: 10px;
 }
