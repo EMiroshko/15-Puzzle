@@ -1,28 +1,27 @@
 var puzzles=$("#puzzles");
 var puzzleArr=[];
-var counter=1;
 $("#button").on('click', function(){
 	createPuzzle(4);
 	$("#button").attr("disabled");
 });
 
 function createPuzzle(puzzles){
-	var table=$('<table>');
+	var table=$('<div class="puzzleTable">');
 	$("body").append(table);	
 	for (var i = 0; i <puzzles; i++){		
-		var tr=$('<tr data-index='+(i+1)+'>');
-		$("table").append(tr);		
+		var tr=$('<div class="puzzleTr" data-index='+(i+1)+'>');
+		$(".puzzleTable").append(tr);		
 		for (var j=0 ; j< puzzles; j++){
-			var td=$('<td data-index='+(j+1)+'>');			
-			$("tr:last").append(td);
-			puzzleArr.push($("td:last"));
+			var td=$('<div class="puzzleTd" data-index='+(j+1)+'>');			
+			$(".puzzleTr:last").append(td);
+			puzzleArr.push($(".puzzleTd:last"));
 		}
 	}
-	var freePlace=$("td:last");
+	var freePlace=$(".puzzleTd:last");
 	for (var i = 0; i < 15; i++) {
 		$(puzzleArr[i]).html(i+1);
 	};	
-	$("td").on('click', function(){
+	$(".puzzleTd").on('click', function(){
 		var tdIndex = $(this).attr("data-index"),
 			trIndex = $(this).parent().attr("data-index"),
 			tdFreePlace = $(freePlace).attr("data-index"),
